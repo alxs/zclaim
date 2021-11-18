@@ -1,0 +1,41 @@
+
+\chapter{Case study - ZCash and Polkadot}
+
+\cite{stewart2020grandpa} but maybe somewhere else
+\todo{mention Zokrates}
+
+We outline the theoretically abstract protocol described until here in terms of a concrete implementation between the anonymous cryptocurrency ZCash, utilised as the backing chain, and Polkadot, a sharded blockchain allowing different chains to communicate and operate together, of which one shard will serve as the issuing chain.
+
+In particular, we describe the creation of a new token named PolkaZEC or PZEC backed 1-to-1 by ZCash funds (ZEC).
+The value of 1 PZEC is always the same as that of 1 ZEC, as these are directly redeemable by the latter.
+
+DOTs, Polkadot's native currency, will be used for collateral purposes and as a secondary means for users to obtain PolkaZEC (provided that someone is willing to swap their PZEC by DOTS).
+
+\section{Polkadot}
+\label{sec:polkadot}
+
+Polkadot is a sharded blockchain allowing different chains to communicate between one another.
+These shards or so-called parachains can either interoperate solely with other shards on the Polkadot network or also serve as a bridge between the network and an exterior blockchain, as in our case.
+
+In the context of this work, we thus design a Polkadot parachain that serves as a bridge between ZCash and the Polkadot network.
+Since the Polkadot ecosystem is still in its early stages, some components referred to in this work are still in development or planned to be implemented in the future.
+Alternatively, they would be implemented as part of the bridge (though they would also be useful for other parachains due to the modular nature of Polkadot).
+
+\todo[inline]{describe how polkadot is built (relay chain, substrate, parachains, pallets)}
+
+\todo[inline]{describe the components we need and where they stand, is centrifuge really working on this}
+
+For instance, we assume that Polkadot implements the same cryptographic libraries as ZCash.
+We also assume that there is a mechanism in place to swap DOTs with tokens created by a parachain.
+
+
+In theory, we may assume complete implementation freedom on Polkadot, the only constraint being the assumption made that the note system and cryptographic libraries from ZCash are carried over to the parachain.
+
+\section{Implementation}
+How the issuing-side components listed in the ZCLAIM Setup section can be implemented on Polkadot (not an actual implementation). Concepts (substrate, parachain, bridge, pallets, XCMP, currencies), libraries.
+
+\section{Cost analysis}
+Estimations of the cost of issuing and redeeming on Polkadot. Costs of storing and verifying ZCash block headers.
+
+
+    \todo{how does collateral work on Polkadot, addresses, etc}

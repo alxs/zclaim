@@ -1,0 +1,56 @@
+
+\chapter{Introduction}
+Since the creation of Bitcoin in 2009, thousands of cryptocurrencies and blockchains with a wide array of applications have emerged~\cite{CoinGecko}.
+This fragmentation of the blockchain space has led to a high demand for interoperability, primarily in the form of asset transfers, across blockchains.
+Unfortunately, the siloed design of the vast majority of blockchains makes it difficult to design generic, cross-chain trading protocols, hence this challenge has to date been solved mostly through centralised exchanges.
+
+However, these services require trust and undermine anonymity, which is particularly problematic when exchanging assets to or from privacy-oriented cryptocurrencies.
+Such projects, also termed privacy coins, are designed around the notion of payment anonymity and have built-in privacy features that obfuscate user activity.
+It is also these very features that make it especially challenging to design trustless cross-chain trading protocols involving privacy coins.
+
+\section{Interoperability}
+
+When talking about interoperability across blockchains nowadays, most of the time one type or another of cross-chain asset transfers is meant.
+Although there have been attempts at cross-chain smart contracts~\cite{GitHubtrustlesscrosssysteminteractionIon} and they have recently started being discussed in the literature~\cite{nissl2020crossblockchain}, we still have a long way to go until that extent of interoperability becomes commonplace.
+
+The classical solution to decentralised cross-chain exchanges are Atomic Cross-Chain Swaps (ACCS)~\cite{herlihy2018accs}.
+Atomic swaps allow users on two different blockchains to swap ownership of a pre-agreed amout of assets, guaranteeing that the exchange either happens in full or not at all.
+Atomic swaps work, but they also present significant limitations such as requiring to establish an external communication channel between participants in order to find and agree on a swap, an asymmetrical advantage for one out of the two participants (`free-option problem'~\cite{HomerenprojectrenWikiGitHub}) and relatively high cost and long confirmation delays.
+
+Most other protocols that have not been designed in this manner can be classified as \emph{asset migration} protocols~\cite{zamyatin2019sok}, in which an asset is moved from one blockchain to another.
+Usually, this is achieved by creating a representation of the assets on the new chain while those on the original chain are locked until the process is reversed.
+This representation of the locked assets on the alien chain is often referred to as a \emph{tokenised representation} of the original assets, \emph{wrapped tokens} or \emph{cryptocurrency-backed assets (\cbas)}.
+
+Besides, asset migration protocols may be classified as relying on a trusted third party (TTP) or as being \emph{trustless}.
+Usually, relying on a TTP requires sacrificing control over one's funds and privacy, while trustless protocols require an economic system on the remote chain.
+
+
+\section{Related Work}
+Decentralised exchanges (DEXs)~\cite{0xwhitepaper,uniswap} offer a trustless alternative to centralised cryptocurrency exchanges.
+However, most DEXs do not enable cross-chain transfers, but only serve to exchange assets within the blockchain on which they are deployed.
+The Ren Project~\cite{HomerenprojectrenWikiGitHub} is a generic cross-chain transfer protocol aiming to implement universal interoperability, which they define as \textquote{the ability to send any asset from any chain to any other chain for use in any application}.
+This is an impressive proposition, yet it is another question whether the issue of preserving privacy in cross-chain exchanges with privacy coins will be addressed in that context.
+
+As far as cross-chain protocols involving privacy coins are concerned, a number of projects are currently under development.
+Cosmos~\cite{cosmosWhitepaper} is working on a Zcash `pegzone'~\cite{githubPegzone}, with the ultimate goal of enabling \textquote{shielded transfers from the pegzone to Zcash and vice versa}.
+Details on the project are scarce, but as per this stated purpose, the Zcash pegzone aims to achieve very much the same goal as this work.
+
+Wrapped~\cite{Wrapped} is a tokenised representation of Zcash on Ethereum, although it relies on a centralised TTP, does not support shielded Zcash and hence can by no means be considered to preserve privacy.
+Similarly, the Ren Project mentioned above offers a tokenised representation of ZCash, renZEC, which does not rely on a TTP but also does not support Zcash's shielded payment scheme.
+
+Finally, there is an ongoing effort to implement atomic swaps between Bitcoin and the privacy coin Monero~\cite{BTCXMRatomicswaps,CCSMoneroAtomicSwapsimplementationfunding}.
+
+
+\section{Contributions}
+
+We introduce \zclaim, a protocol enabling the creation of fully private \cbas backed by the privacy coin Zcash.
+This work is originally based on XCLAIM, itself a framework laying out the creation of tokens on a pre-existing, smart-contract capable \emph{issuing chain} backed by assets on a \emph{backing chain}, both of them publicly auditable.
+
+In contrast to these assumptions, we observe the case where:
+\begin{enumerate}[label=(\alph*)]
+  \item the backing chain is private, i.e.\ transactions leak no significant amount of information to outsiders,
+  \item this anonymity shall be retained throughout the protocol and across both chains, and
+  \item the definition of the issuing chain is loosened: it may be a smart-contract capable blockchain or a blockchain with appropriate functionality, built expressly to implement this protocol.
+\end{enumerate}
+
+\todo{Outline}

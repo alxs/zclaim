@@ -1,0 +1,46 @@
+\chapter{Cryptographic schemes}
+
+Cryptographic schemes conceived for \zclaim are defined in the following pages.
+On the other hand, schemes taken from Sapling to which reference is made in this work were introduced in~\cref{ch:prelims} and will not be reproduced here.
+
+
+\section{Commitment schemes}
+We define a commitment scheme as in~\cite[Section 4.1.7]{hopwood2016zcash}.
+
+\subsection{Nonce commitment scheme}
+\label{app:nncm}
+The nonce commitment scheme \nncm may be instantiated as a Windowed Pedersen commitment scheme as defined in~\cite[Section 5.4.7.2]{hopwood2016zcash} in a similar fashion to Sapling's note commitment scheme \ncm, since the homomorphic properties required when hiding the note value are not necessary.
+It is defined as follows:
+\begin{flalign*}
+    &\nncm_{\rcn}(\nlock) := \wpc_{\rcn}(\nlock)&
+\end{flalign*}
+
+
+\section{Signature schemes}
+We use the definition of a signature scheme in~\cite[Section 4.1.6]{hopwood2016zcash}.
+
+\subsection{Minting signature}
+\label{app:mas}
+\mas may be instantiated as \redjj as defined in~\cite[Section 5.4.6]{hopwood2016zcash} without key re-randomisation and with generator
+\begin{flalign*}
+    &\mathcal{P}_{\G} = \fgh(\text{``\zclaimm''}, \text{``''})&
+\end{flalign*}
+
+
+\subsection{Vault signature}
+\label{app:vaultsig}
+\vaultsig may be instantiated as \redjj as defined in~\cite[Section 5.4.6]{hopwood2016zcash} without key re-randomisation and with generator
+\begin{flalign*}
+   &\mathcal{P}_{\G} = \divhash(\dvf)&
+\end{flalign*}
+where \dvf is the diversifier associated with the vault in the vault registry.
+
+
+\section{SIGHASH transaction hashing}
+\label{app:sighash}
+
+We use the \sighash transaction hash as defined in~\cite{ZIP243}, not associated with an input and using the \sighash type \sighashall, to which we add two new fields:
+\begin{itemize}
+    \item $\hashmints :  \B^{[256]}$ is 0 if the transaction does not contain a Mint transfer, otherwise it is the \blakezclaim hash of the serialization of the Mint transfer (in its canonical transaction serialization format) with the personalisation field set to ``$\mathtt{ZclaimMintHash}$''.
+    \item $\hashburns :  \B^{[256]}$ is 0 if the transaction does not contain a Burn transfer, otherwise it is the \blakezclaim hash of the serialization of the Burn transfer (in its canonical transaction serialization format) with the personalisation field set to ``$\mathtt{ZclaimBurnHash}$''.
+\end{itemize}

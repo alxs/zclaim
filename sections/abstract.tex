@@ -1,0 +1,10 @@
+\begin{abstract}
+Interoperability solutions for privacy-focused cryptocurrencies are hard to design: they must integrate with the unique privacy features of the underlying blockchain, itself often in active development, such as to trace specific payments in protocols designed to make payments untraceable.
+The required specialised research and development effort have resulted in a lack of such projects, despite the dependence on centralised exchanges for cross-chain transfers being particularly problematic for privacy-oriented cryptocurrencies.
+
+In this work, we present \zclaim, an adaptation of the framework for decentralised cross-chain exchanges \xclaim to the privacy-protecting cryp\-tocurrency Zcash.
+This is to the author's knowledge the first project that succeeds in maintaining privacy in cross-chain transfers.
+
+\zclaim integrates with the Sapling version of the Zcash protocol, implemented on a smart-contract capable issuing chain, in order to attain private cross-chain transfers.
+We provide an abstract protocol specification, defining new transfer types that fit into the existing Sapling transaction structure along with zk-SNARKs allowing protocol participants to prove statements about Zcash transactions in zero knowledge on the issuing chain.
+\end{abstract}

@@ -1,0 +1,30 @@
+
+\chapter{Conclusion and Outlook}
+
+In this work, we have shown that it is possible to preserve the privacy-preserving qualities of Zcash in cross-chain transfers.
+More generally speaking, we provide a specification for a decentralised cross-chain transfer protocol that fully integrates with a privacy-oriented cryptocurrency.
+
+The author hopes that this can be of use to other teams attempting to interoperate with Zcash shielded transactions and that it encourages more privacy-friendly cross-chain transfer protocols to emerge.
+
+
+\section{Future Work}
+
+Listed below are a number of points on which improvements could or should be made, some of which may have been pointed out previously in this document:
+\begin{itemize}
+    \item Concurrent Issue and Redeem procedures should be feasible with minor modifications.
+    \item Block header verification must be adapted to the FlyClient upgrade~\cite{zipszip0221flyclient}, as well as inclusion proofs.
+    \item The way issue and redeem availability is currently awarded is non-optimal and may reveal information about the transacted amount.
+    Other approaches should be explored, such as the issuing chain `handing out' issue and redeem requests to vaults at random, whereupon the vault chooses whether to accept it or not, instead of users picking a vault.
+    \item A swap protocol as devised in \xclaim may turn out non-trivial to design.
+    \item It may prove beneficial to allow vaults to set transaction fees themselves, allowing them to fend off network congestion and at the same time incentivising competitiveness.
+    \item The note encoding/challenging approach is interesting, but not very elegant.
+    It may be possible after all to somehow enforce the correctness of the encoded components in a zk-SNARK instead.
+    \item Finally, developing a working proof of concept would be the next step towards a full implementation.
+\end{itemize}
+
+Furthermore, \groth, the zero-knowledge proving system employed in Sapling, is set to be replaced by the more efficient Halo2~\cite{ECCreleasescodeforHalo2} system, which also eliminates the need for a trusted setup, in a future upgrade.
+This will create a new liquidity pool, which in past updates has eventually resulted in older liquidity pools drying up, as pointed out by members of the Zcash development team.
+Hence \zclaim imperatively needs to be adapted to Halo2 before being implemented.
+
+This work is planned to be summarised into a paper and submitted for publication in the coming months.
+Work on the project may be continued through a Zcash Open Major Grant~\cite{AboutusZcashOpenMajorGrantsZOMG}.
