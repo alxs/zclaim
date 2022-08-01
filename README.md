@@ -20,4 +20,4 @@ issuing chain.
 
 ---
 
-This work has been summarised into a [paper](https://arxiv.org/abs/2204.10611) to be presented at [IEEE ICBC 2022](https://icbc2022.ieee-icbc.org/).
+This work was summarised into a [paper](https://arxiv.org/abs/2204.10611) and published at [IEEE ICBC 2022](https://icbc2022.ieee-icbc.org/).
