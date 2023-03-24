@@ -4,9 +4,9 @@ Confidential Cross-Blockchain Exchanges: Designing a Privacy-Preserving Interope
 
 ---
 
-This document describes the design of a private bridge based on Zcash's Sapling protocol. The protocol assumes an implementation of Sapling on some receiving smart-contract capable chain, though this is likely not strictly necessary. Shielded Zcash can be sent with (informally) negligible information leak accross the bridge and back.
+This document describes the design of a private bridge based on Zcash's Sapling protocol. The protocol assumes an implementation of Sapling on some receiving smart-contract capable chain. Shielded Zcash can be sent with (informally) negligible information leak accross the bridge and back.
 
-The work here was submitted as an external Master's thesis to ETH Zürich in collaboration with the [Web3 Foundation](https://web3.foundation/). It was realised under the supervision of Martin Vechev and Petar Tsankov at ETH's [SRI Lab](https://www.sri.inf.ethz.ch/), and Fatemeh Shirazi and Alistair Stewart on the Web3 side (titles omitted).
+The work here was submitted as an external Master's thesis to ETH Zürich in collaboration with [Web3 Foundation](https://web3.foundation/). It was realised under the supervision of Martin Vechev and Petar Tsankov at ETH's [SRI Lab](https://www.sri.inf.ethz.ch/), and Fatemeh Shirazi and Alistair Stewart on the Web3 side (titles omitted).
 
 
 ### Abstract
